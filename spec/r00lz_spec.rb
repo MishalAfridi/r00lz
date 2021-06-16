@@ -3,7 +3,8 @@ RSpec.describe R00lz do
     expect(R00lz::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "returns 200" do
+    env = { "PATH_INFO" => "/", "QUERY_STRING" => "" }
+    expect(::R00lz::App.new.call(env)[0]).to eq 200
   end
 end
